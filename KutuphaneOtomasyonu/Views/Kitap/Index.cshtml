@@ -1,0 +1,93 @@
+﻿@model ReflectionIT.Mvc.Paging.IPagingList<KutuphaneOtomasyonu.Context.Kitap>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *, ReflectionIT.Mvc.Paging
+
+
+@{
+    ViewData["Title"] = "Kitap";
+}
+
+<h1>Kitap</h1>
+
+<p>
+    <a asp-action="Create">Yeni Kayıt Oluştur</a>
+</p>
+
+<form method="get" class="form-inline" style="margin-bottom:20px">
+    <input name="filter" class="form-control" placeholder="Kitap Adı"
+           value="@Model.RouteValue["Filter"]" />
+    <button type="submit" class="btn btn-info">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Ara
+    </button>
+</form>
+@*<form asp-controller="Kitap" asp-action="Index">
+    <p>
+        <input type="text" name="SearchString" />
+        <input type="submit" value="Ara" />
+    </p>
+</form>*@
+
+<table class="table table-striped table table-hover">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Ad
+        </th>
+        <th>
+            Sayfa Sayısı
+        </th>
+        <th>
+            Basim Sayısı
+        </th>
+        <th>
+            Yayın Evi
+        </th>
+        <th>
+            Yazar
+        </th>
+        <th>
+            Kategori
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(kitap => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(kitap => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(kitap => item.Sayfasayisi)
+            </td>
+            <td>
+                @Html.DisplayFor(kitap => item.Basimsayisi)
+            </td>
+            <td>
+                @Html.DisplayFor(kitap => item.Yayinevi.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(kitap => item.Yazar.Adsoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(kitap => item.Kategori.Ad)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Silinecek Emin Misiniz ?')">Sil</a>
+            </td>
+        </tr>
+    }
+</table>
+
+ 
+
+<nav aria-label="Index navigation example">
+    <vc:pager paging-list="@Model" />
+</nav>

@@ -1,0 +1,68 @@
+﻿@model KutuphaneOtomasyonu.Models.Uye
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-action="Create">
+    <div class="form-horzontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="AdSoyad" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AdSoyad" class="form-control" id="ad" />
+                <span asp-validation-for="AdSoyad" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Cinsiyet" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Cinsiyet" class="form-control" id="cins" />
+                <span asp-validation-for="Cinsiyet" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Telefon" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Telefon" class="form-control" id="tel" />
+                <span asp-validation-for="Telefon" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="KutuphaneId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="KutuphaneId" class="form-control" asp-items="ViewBag.KutuphaneId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                <input type="submit" value="Create" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    <a asp-action="Index" onclick="Memento()">Listeye Geri Dön</a>@TempData["AdSoyad"] @ViewData["Cinsiyet"] |
+    @*<a asp-action="CacheTryGetValueSet" onclick="Memento()">Cache</a>*@
+</div>
+
+
+<script>
+    function Memento() {
+        var ad = $("#ad").val();
+        var cinsiyet = $("#cins").val();
+        var telefon = $("#tel").val();
+
+        var data = {
+            AdSoyad : $('#ad').val(),
+            Cinsiyet : $('#cins').val(),
+            Telefon : $('#tel').val()
+        };
+        $.ajax({
+            type: "POST",
+            url: '/Uye/Memento',
+            data: data,
+        })
+         
+    }
+</script>

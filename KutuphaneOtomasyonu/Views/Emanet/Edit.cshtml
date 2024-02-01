@@ -1,0 +1,35 @@
+﻿@model KutuphaneOtomasyonu.Models.Emanet
+@{
+    ViewData["Title"] = "Düzenle";
+}
+
+<h1>Emanet Düzenle</h1>
+ 
+<hr />
+ 
+    <div class="form-horizontal">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <div class="col-md-8">
+                    <label asp-for="Uye" class="control-label"></label>
+                    <select asp-for="UyeId" class="form-control" asp-items="ViewBag.UyeId"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-8">
+                    <label asp-for="Kitap" class="control-label"></label>
+                    <select asp-for="KitapId" class="form-control" asp-items="ViewBag.KitapId"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+ 
+
+<div>
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>

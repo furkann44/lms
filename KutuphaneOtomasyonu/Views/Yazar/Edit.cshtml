@@ -1,0 +1,35 @@
+﻿@model KutuphaneOtomasyonu.Models.Yazar
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Düzenle</h1>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Yazar Bilgisi:</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="AdSoyad" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AdSoyad" class="form-control" />
+                <span asp-validation-for="AdSoyad" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Biyografi" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Biyografi" class="form-control" />
+                <span asp-validation-for="Biyografi" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                <input type="submit" value="Edit" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+</form>
+    <a asp-action="Index">Listeye Geri Dön</a>
+ 

@@ -1,0 +1,67 @@
+﻿@model KutuphaneOtomasyonu.Models.Kitap
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Kitap Bilgisi :</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Ad" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SayfaSayisi" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SayfaSayisi" class="form-control" />
+                <span asp-validation-for="SayfaSayisi" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="BasimSayisi" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BasimSayisi" class="form-control" />
+                <span asp-validation-for="BasimSayisi" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="yayineviid" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="yayineviid" class="form-control" asp-items="ViewBag.YayinEviId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="yazarid" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="yazarid" class="form-control" asp-items="ViewBag.YazarId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="kategoriid" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="kategoriid" class="form-control" asp-items="ViewBag.KategoriId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                <input type="submit" value="Kaydet" class="btn btn-info"/>
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

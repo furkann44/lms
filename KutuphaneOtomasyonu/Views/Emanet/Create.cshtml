@@ -1,0 +1,33 @@
+﻿@model KutuphaneOtomasyonu.Models.Emanet 
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Emanet Oluştur</h1> 
+<hr />
+ 
+    <div class="form-horizontal">
+        <hr />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="col-md-8">
+                    <label asp-for="Uye" class="control-label"></label>
+                    <select asp-for="UyeId" class="form-control" asp-items="ViewBag.Uyeid"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-8">
+                    <label asp-for="Kitap" class="control-label"></label>
+                    <select asp-for="KitapId" class="form-control" asp-items="ViewBag.Kitapid"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Oluştur" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+<div>
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>

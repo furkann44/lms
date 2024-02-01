@@ -1,0 +1,54 @@
+﻿@model IEnumerable<KutuphaneOtomasyonu.Models.Rapor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Aylık Rapor</h1>
+
+ 
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kitap.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uye.AdSoyad)
+            </th>
+            <th>
+                Oluşturulma Tarihi
+            </th>
+            <th>
+                <a asp-action="YillikRapor">Yıllık Rapor</a> |
+                <a asp-action="AylikRapor">Aylık Rapor</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kitap.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uye.AdSoyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Emanet.Month) / @Html.DisplayFor(model => item.Emanet.Year)
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Silinecek Emin Misiniz')">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

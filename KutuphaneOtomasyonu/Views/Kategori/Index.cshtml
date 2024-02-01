@@ -1,0 +1,35 @@
+﻿@model IEnumerable<KutuphaneOtomasyonu.Models.Kategori>
+@{
+    ViewData["Title"] = "Index";
+}
+ <h1>Kategori</h1>
+<p>
+    <a asp-action="Create">Yeni Kayıt oluştur</a>
+</p>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(kategori => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(kategori => item.Ad)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('Emin Misiniz')">Sil</a>
+            </td>
+        </tr>
+    }
+</table>

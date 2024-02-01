@@ -1,0 +1,61 @@
+﻿@model KutuphaneOtomasyonu.Models.Kitap
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Oluştur</h1>
+
+<form asp-action="Create">
+    <div class="form-horizontal"> 
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Ad" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Ad" class="form-control" required/>
+                <span asp-validation-for="Ad" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SayfaSayisi" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SayfaSayisi" class="form-control" required type="number"/>
+                <span asp-validation-for="SayfaSayisi" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="BasimSayisi" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BasimSayisi" class="form-control" />
+                <span asp-validation-for="BasimSayisi" class="text-danger" type="number"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="yayineviid" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                 <select asp-for="yayineviid" class="form-control" asp-items="ViewBag.YayinEviId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="yazarid" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="yazarid" class="form-control" asp-items="ViewBag.YazarId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="kategoriid" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="kategoriid" class="form-control" asp-items="ViewBag.KategoriId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                <input type="submit" value="Create" class="btn btn-info"/>
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    <a asp-action="Backup">Listeye Geri Dön</a>
+</div>
+

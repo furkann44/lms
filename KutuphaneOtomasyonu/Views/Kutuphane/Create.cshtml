@@ -1,0 +1,34 @@
+﻿@model KutuphaneOtomasyonu.Models.Kutuphane
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Kütüphane Oluştur</h1>
+
+<form asp-action="Create">
+    <div class="form-horizontal"> 
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Ad" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <label asp-for="Adres" class="col-md-2 control-label"></label>
+                <select asp-for="AdresId" class="form-control" asp-items="ViewBag.AdresId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2">
+                <input value="Oluştur" class="btn btn-info" type="submit" />
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>
